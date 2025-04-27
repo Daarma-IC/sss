@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -31,7 +32,9 @@ export default function Home() {
   // Format waktu dengan leading zeros
   const jam = currentTime.getHours().toString().padStart(2, '0');
   const menit = currentTime.getMinutes().toString().padStart(2, '0');
-  
+  const [progress, setProgress] = useState(0); // awal 0%
+  const [correctCount, setCorrectCount] = useState(0);
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
@@ -144,9 +147,11 @@ export default function Home() {
                 <h2 className="text-2xl font-bold text-purple-900">Selamat {jam < 12 ? 'Pagi' : (jam < 18 ? 'Siang' : 'Malam')}, Adik Kecil!</h2>
               </div>
               <p className="text-purple-800 text-lg mb-4">Mari kita belajar sambil bermain hari ini. Ada banyak materi menarik untuk kamu coba.</p>
-              <button className="bg-white text-purple-800 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
-                <span className="mr-2">🚀</span> Mulai Belajar Sekarang
-              </button>
+              <Link href="/learn">
+  <button className="bg-white text-purple-800 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+    <span className="mr-2">🚀</span> Mulai Belajar Sekarang
+  </button>
+</Link>
             </div>
             
             <div className="flex flex-col items-center">
