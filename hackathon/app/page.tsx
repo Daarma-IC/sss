@@ -63,7 +63,7 @@ export default function Home() {
             </button> 
           </Link>
 
-          <Link href="/chat">
+          <Link href="/learn">
             <button className="w-12 h-12 hover:bg-pink-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
               <span className="text-xl">💬</span>
             </button>

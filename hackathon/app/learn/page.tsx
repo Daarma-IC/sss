@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Sidebar from "@/component/sidebar";
+
+
+
+
 
 export default function LearnPage() {
+
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState("");
@@ -163,29 +170,33 @@ export default function LearnPage() {
     }
   };
   
+  
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm py-4 px-6">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl flex items-center justify-center text-white mr-3">
-              <span className="text-xl">🧠</span>
+        <Link href="hackathon/app/landing_page">
+        <header className="bg-white shadow-sm py-4 px-6">
+          <div className="max-w-4xl mx-auto flex justify-between items-center">
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl flex items-center justify-center text-white mr-3">
+                <span className="text-xl">🧠</span>
+              </div>
+              <h1 className="text-2xl font-bold text-gray-800">AI Guru Balita</h1>
             </div>
-            <h1 className="text-2xl font-bold text-gray-800">AI Guru Balita</h1>
-          </div>
-          
-          <div className="flex items-center space-x-3">
-            <button className="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-medium hover:bg-purple-200 transition-colors">
-              Kembali ke Dashboard
-            </button>
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center text-white">
-              AB
+            
+            <div className="flex items-center space-x-3">
+              
+              <button className="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-medium hover:bg-purple-200 transition-colors">
+                Kembali ke Dashboard
+              </button>
+              
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center text-white">
+                AB
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-      
+        </header>
+        </Link>
       <main className="flex-1 py-8 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Category Selection */}
@@ -320,5 +331,5 @@ export default function LearnPage() {
         </div>
       </footer>
     </div>
-  );
+  );  
 }
