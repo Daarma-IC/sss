@@ -1,80 +1,73 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [activeTab, setActiveTab] = useState('home');
-  
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
-    
     return () => clearInterval(timer);
   }, []);
-  
-  // Format hari dalam Bahasa Indonesia
+
+  // Format hari dan bulan Bahasa Indonesia
   const hariIndonesia = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-  
-  // Format bulan dalam Bahasa Indonesia
   const bulanIndonesia = [
-    "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
     "Juli", "Agustus", "September", "Oktober", "November", "Desember"
   ];
-  
+
   const hari = hariIndonesia[currentTime.getDay()];
   const tanggal = currentTime.getDate();
   const bulan = bulanIndonesia[currentTime.getMonth()];
   const tahun = currentTime.getFullYear();
-  
-  // Format waktu dengan leading zeros
   const jam = currentTime.getHours().toString().padStart(2, '0');
   const menit = currentTime.getMinutes().toString().padStart(2, '0');
-  
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <div className="w-20 bg-white shadow-md flex flex-col items-center py-8 space-y-10">
+        
+        {/* Logo */}
         <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl flex items-center justify-center text-white">
           <span className="text-xl">🧠</span>
         </div>
-        
+
+        {/* Menu */}
         <div className="flex flex-col space-y-8 items-center">
-          <button 
-            className={`w-12 h-12 ${activeTab === 'home' ? 'bg-yellow-100 text-yellow-600' : 'hover:bg-gray-100 text-gray-500'} rounded-xl flex items-center justify-center transition-all duration-200`}
-            onClick={() => setActiveTab('home')}
-          >
-            <span className="text-xl">🏠</span>
-          </button>
-          
-          <button 
-            className={`w-12 h-12 ${activeTab === 'timer' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100 text-gray-500'} rounded-xl flex items-center justify-center transition-all duration-200`}
-            onClick={() => setActiveTab('timer')}
-          >
-            <span className="text-xl">⏰</span>
-          </button>
-          
-          <button 
-            className={`w-12 h-12 ${activeTab === 'files' ? 'bg-green-100 text-green-600' : 'hover:bg-gray-100 text-gray-500'} rounded-xl flex items-center justify-center transition-all duration-200`}
-            onClick={() => setActiveTab('files')}
-          >
-            <span className="text-xl">📚</span>
-          </button>
-          
-          <button 
-            className={`w-12 h-12 ${activeTab === 'stats' ? 'bg-purple-100 text-purple-600' : 'hover:bg-gray-100 text-gray-500'} rounded-xl flex items-center justify-center transition-all duration-200`}
-            onClick={() => setActiveTab('stats')}
-          >
-            <span className="text-xl">📊</span>
-          </button>
-          
-          <button 
-            className={`w-12 h-12 ${activeTab === 'chat' ? 'bg-pink-100 text-pink-600' : 'hover:bg-gray-100 text-gray-500'} rounded-xl flex items-center justify-center transition-all duration-200`}
-            onClick={() => setActiveTab('chat')}
-          >
-            <span className="text-xl">💬</span>
-          </button>
+          <Link href="/">
+            <button className="w-12 h-12 hover:bg-yellow-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
+              <span className="text-xl">🏠</span>
+            </button>
+          </Link>
+
+          <Link href="/timer">
+            <button className="w-12 h-12 hover:bg-blue-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
+              <span className="text-xl">⏰</span>
+            </button>
+          </Link>
+
+          <Link href="/files">
+            <button className="w-12 h-12 hover:bg-green-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
+              <span className="text-xl">📚</span>
+            </button>
+          </Link>
+
+          <Link href="/statistik">
+            <button className="w-12 h-12 hover:bg-purple-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
+              <span className="text-xl">📊</span>
+            </button> 
+          </Link>
+
+          <Link href="/chat">
+            <button className="w-12 h-12 hover:bg-pink-100 text-gray-500 rounded-xl flex items-center justify-center transition-all duration-200">
+              <span className="text-xl">💬</span>
+            </button>
+          </Link>
         </div>
         
         <div className="mt-auto">
