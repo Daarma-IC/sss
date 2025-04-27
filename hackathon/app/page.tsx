@@ -79,11 +79,12 @@ export default function Home() {
       
       {/* Main Content */}
       <div className="flex-1 p-8 overflow-auto">
-        {/* Top Navigation */}
+        {/* Top Navigation Dashboard */}
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-            <p className="text-gray-500">{hari}, {tanggal} {bulan} {tahun}</p>
+            <p className="text-gray-500">{hari}, {tanggal} {bulan} {tahun} : {jam} {menit}</p>
+            <p className="text-gray-500">Time : {jam} {menit}</p>
           </div>
           
           <div className="flex items-center space-x-6">

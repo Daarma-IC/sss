@@ -51,8 +51,8 @@ export default function MateriPage() {
     <div className="min-h-screen bg-gray-50 p-8">
     <header className="flex items-center justify-between mb-8">
       <h1 className="text-4xl font-bold text-gray-800">📚 Materi Pilihan</h1>
-      <Link href="/materi" className="text-purple-600 hover:underline">
-        Lihat Semua →
+      <Link href="/learn" className="text-purple-600 hover:underline">
+         Mulai Belajar →
       </Link>
     </header>
 
